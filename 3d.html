@@ -1,1 +1,139 @@
-<a>1</a>
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>3D盒子</title>
+  <style>
+	body,html{ height: 100%; margin: 0; background: #777; }
+	.cube{
+		width: 100%;
+		height: 100%;
+		perspective: 1344px;
+		position: relative;
+	}
+	.cube-wrap{
+		
+		transform: translateZ(-322px);
+	}
+	.cube-wrap,.cube-main{
+		position: absolute;
+		width: 100%;
+		transform-style: preserve-3d;
+		height: 100%;
+		transition: transform 1s;
+	}
+	.box-item{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	
+	
+
+	.back {
+	  transform: translateZ(-322px) rotateX(180deg);
+	}
+	.top {
+	  transform: translateY(-322px) rotateX(90deg);
+	}
+	.bottom {
+	  transform: translateY(322px) rotateX(270deg);
+	}
+	.front {
+	  transform: translateZ(322px);
+	}
+
+	.back {
+	  background-image: url(http://rdcm.com/resize/w2000-h1200/upload/iblock/0aa/01_innovate.jpg?547abcc4);
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+	.top {
+	  background-image: url(http://rdcm.com/resize/w2000-h1200/upload/iblock/568/create.jpg?c481e8eb);
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+	.bottom {
+	  background-image: url(http://rdcm.com/resize/w2000-h1200/upload/iblock/6cd/design.jpg?5a40727b);
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+	.front {
+	  background-image: url(http://rdcm.com/resize/w2000-h1200/upload/iblock/5c2/rdteam.jpg?2f0a2413);
+	  background-repeat: no-repeat;
+	  background-size: cover;
+	}
+  </style>
+ </head>
+ <body>
+	<div class="cube">
+		<div class="cube-wrap">
+			<div class="cube-main">
+				<div class="box-item front" data-direction="front">FRONT</div>
+				<div class="box-item back" data-direction="back">BACK</div>
+				<div class="box-item top" data-direction="top">TOP</div>
+				<div class="box-item bottom" data-direction="bottom">BOTTOM</div>
+			</div>
+		</div>
+		
+	</div>
+	<script>
+	
+		window.onmousewheel = scrollFunc;
+		window.onresize = resizeFunc;
+		var index = 0;
+
+		function resizeFunc(e){
+			var boxItem = document.querySelectorAll(".box-item");
+			var boxWrap = document.querySelector('.cube-wrap');
+			//获取屏幕高度
+			var height = document.body.clientHeight;
+			var tZ = Math.floor(height / 2);
+			boxWrap.style.transform = "translateZ(-"+tZ+"px)";
+
+			var direction = {
+				"front": function(that,tz){
+					that.style.transform = "translateZ("+tz+"px)";
+				},
+				"back": function(that,tz){
+					that.style.transform = "translateZ(-"+tz+"px) rotateX(180deg)";
+				},
+				"top": function(that,tz){
+					that.style.transform = "translateY(-"+tz+"px) rotateX(90deg)";
+				},
+				"bottom": function(that,tz){
+					that.style.transform = "translateY("+tz+"px) rotateX(270deg)";
+				}
+
+			}
+
+			//前下是正 后上是负
+			for(var i = 0,l = boxItem.length; i<l;i++){
+				//获取方向
+				var di = boxItem[i].getAttribute('data-direction');
+				direction[di](boxItem[i],tZ);
+			}
+		}
+		function scrollFunc(e){
+			var cubeMain = document.querySelector(".cube-main");
+			if(e.deltaY<0){
+				index--;
+				cubeMain.style.transform = "rotateX("+index*90+"deg)";
+				window.onmousewheel = null;
+				setTimeout(function(){ window.onmousewheel = scrollFunc; }, 1000);
+			}else{
+				index++;
+				cubeMain.style.transform = "rotateX("+index*90+"deg)";	
+				window.onmousewheel = null;
+				setTimeout(function(){ window.onmousewheel = scrollFunc; }, 1000);
+			}
+			
+			
+		}
+	</script>
+ </body>
+</html>
