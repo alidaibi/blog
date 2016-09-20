@@ -6,10 +6,11 @@
   <meta name="Author" content="">
   <meta name="Keywords" content="">
   <meta name="Description" content="">
-  <title>Document</title>
+  <title>来自外星的天气预报</title>
   <style>
-	body,html{ padding: 0; margin: 0; overflow-x: hidden; font-family: arial, 'Microsoft Yahei', '微软雅黑'; }
-	.main{ font-size: 0; background: #000; }
+	h1{ margin: 0; }
+	body,html{ height: 100%; padding: 0; margin: 0; overflow-x: hidden; font-family: arial, 'Microsoft Yahei', '微软雅黑'; background: #000;}
+	.main{ height: 100%; font-size: 0;  }
 	.item{
 		display: inline-block;
 		width: 25%;
@@ -60,6 +61,9 @@
 	.item:hover{
 		z-index: 11;
 	}
+	.item:hover .image{
+		opacity: 1;
+	}
 	.item:hover .item-wrap{
 		top:-3rem;
 		right:-3rem;
@@ -106,7 +110,8 @@
 		right: 0;
 		bottom: -15px;
 		transform: rotate(-45deg);
-		text-indent: 77px;
+		text-indent: 3.5rem;
+    		text-align: right;
 	}
 	.item:nth-child(4n) .hot{
 		left: 0;
@@ -115,162 +120,134 @@
 	}
 	.item:nth-child(4n) .hot span{
 		transform: rotate(45deg);
-		text-indent: -77px;
+		text-indent: -.5rem;
+		    text-align: left;
 	}
+
+.cm-mask{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,.3);
+}
+.cm-wrap-alert{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 30%;
+	z-index: 99;
+	transform: translate(-50%, -50%);
+}
+.cm-header-alert{
+	font-size: 14px;
+	display: inline-block;
+	height: 0;
+	line-height: 30px;
+	padding: 0 15px;
+	border-right: 14px solid transparent;
+    	border-bottom: 30px solid rgb(45,74,165);
+	color: #FFF;
+	text-align: center;
+}
+.cm-container-alert{
+	word-break: break-word;
+	background: #FFF;
+	box-shadow:2px 2px 10px #524F4F;
+}
+.cm-content-alert{
+	min-height: 200px;
+	padding:  10px;
+}
+.cm-close-alert{
+	width: 100%;
+	padding: 10px 0;
+	text-align: center;
+	color: #FFF;
+	background: rgb(45,74,165);
+	border: 0;
+}
   </style>
  </head>
  <body>
 	<div class="main">
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
-		<div class="item">
-			<div class="item-i">
-				<a class="item-wrap">
-					<div class="item-main">
-						<div class="image" style="background-image: url(http://rdcm.com/resize/w330-h330-tput_out/upload/iblock/712/preview.jpg?0dc67ee1)"></div>
-						<div class="title">
-							<h3>UWC Dilijan College </h3>
-						</div>
-						<div class="hot"><span>Hot</span></div>
-					</div>
-				</a>
-			</div>
-		</div>
+		
 	</div>
+	
+	<script type="text/javascript"  src="js/juicer-min.js"></script>
 	<script type="text/javascript"  src="js/jquery.js"></script>
-	<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+	<script type="text/template" id="alert">
+		<div class="cm-mask"></div>
+	<div class="cm-wrap-alert">
+		<h1 class="cm-header-alert">提示</h1>
+		<div class="cm-container-alert">
+			<div class="cm-content-alert">
+				sadadasdasdad
+			</div>
+			<div class="cm-btns-alert">
+				<button class="cm-close-alert">关闭</button>
+			</div>
+		</div>
+		
+	</div>
+	</script>
+	<script type="text/template" id="itemTpl">
+			{@each list as it,index}
+			<div class="item">
+				<div class="item-i">
+					<a class="item-wrap">
+						<div class="item-main">
+							<div class="image" style="background-image: url(./images/rain.png)"></div>
+							<div class="title">
+								<h3>${it.date} </h3>
+								<h3>早上: ${it.tq1} 夜间: ${it.tq2}</h3>
+								<h3>早上气温: ${it.qw1} 夜间气温: ${it.qw2}</h3>
+								<h3>早上风力: ${it.fl1} 夜间风力: ${it.fl2}</h3>
+							</div>
+							<div class="hot"><span>Hot</span></div>
+						</div>
+					</a>
+				</div>
+			</div> 
+			{@/each}
+	</script>
+
+
+
+
 	<script>
 		;(function($){
-			$.ajax({
-				type: "get",
-				url: 'https://api.thinkpage.cn/v3/weather/now.json',
-				data: {
-					key: "bhafdforzsxikcki",
-					location: 'nanjing',
-					language: 'zh-Hans',
-					unit: 'c'
-				},
-				success: function(data){
-					console.log(data);
-				},
-				error: function(){
-				
+			var alertHtml = $("#alert").html();
+			var dataArr = [];
+			var tLevel = ["阴","晴","多云","暴雨","雷阵雨"];
+			var fLevel = ["无","1-2级","3-4级","4-5级"];
+			var datetime = new Date();
+			for(var i = 0; i< 10;i++){
+				datetime.setDate(datetime.getDate() + i);
+				var obj = {
+					date: datetime.getFullYear() + "年" + (datetime.getMonth() + 1) + "月"+ datetime.getDate() + "日",
+					tq1: tLevel[Math.floor(Math.random() * tLevel.length)],
+					tq2: tLevel[Math.floor(Math.random() * tLevel.length)],
+					qw1: Math.floor(Math.random() * 40),
+					qw2: Math.floor(Math.random() * 40),
+					fl1: fLevel[Math.floor(Math.random() * fLevel.length)],
+					fl2: fLevel[Math.floor(Math.random() * fLevel.length)]
 				}
+				dataArr.push(obj);
+
+				
+			}
+			var tpl = $('#itemTpl').html();
+			var res = { list: dataArr };
+			var html = juicer(tpl, res);
+			$(".main").html(html);
+
+			$(document).on("click",".cm-close-alert",function(){
+				$(".cm-mask,.cm-wrap-alert").remove();	
+			});
+			$(document).on("click",".item-main",function(){
+				$("body").append(juicer(alertHtml,null));
 			});
 		})(jQuery);
 	</script>
